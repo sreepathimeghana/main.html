@@ -1,0 +1,64 @@
+<html>
+<head>
+<script language="JavaScript">
+<!--
+function convert_It(form) {
+var a = escape(form1.first.value); <!-- Get textbox1 string -->
+var b = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ%@#$^&*()-_=+.:,"; <!-- letters to compare to -->
+var c = "zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA +=_-)(*&^$#@.:,"; <!-- letter to change string to -->
+var d;
+var h;
+var i;
+var j = "";
+
+var f = a.length; <!-- get length of the textbox1 string -->
+var e = 0; 
+var g = 1;
+
+while (e != f) { <!-- while e is not equal to the string length loop --> 
+	d = a.substring(e,g); <!-- get each letter in the text box -->
+	h = b.indexOf(d); <!-- find that letter in var b -->
+	i = c.charAt(h); <!-- change it to the letter in var c -->
+	e++; <!-- add one to var e -->
+	g++; <!-- add one to var g -->
+	j += i; <!-- write out each letter -->
+	}
+	form1.second.value = j; <!-- the final output put in textbox2 -->
+}
+
+
+function unconvert_It(form) {
+var aa = form1.second.value;
+var bb = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ @#$^&*()-_=+.:,";
+var cc = "zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA +=_-)(*&^$#@:.,";
+var dd;
+var hh;
+var ii;
+var jj = "";
+
+var ff = aa.length;
+var ee = 0; 
+var gg = 1;
+
+while (ee != ff) { 
+	dd = aa.substring(ee,gg);
+	hh = cc.indexOf(dd); <!-- just switch var b with c to unencode ex(h = b.indexOf(d); now  ='s hh = cc.indexOf(dd);)-->
+	ii = bb.charAt(hh); <!-- just switch var c with b to unencode  -->
+	ee++;
+	gg++;
+	jj += ii;
+	}
+	form1.second.value = jj;
+}
+//-->
+</script>
+</head>
+<body>
+<form name="form1" id="form1">
+<textarea cols="40" rows="20" name="first"></textarea>
+<input type="button" name="go" value="Convert" onClick="convert_It(this.form)">
+<input type="button" name="unconvert" value="Unconvert" onClick="unconvert_It(this.form)">
+<textarea cols="40" rows="20" name="second"></textarea>
+</form>
+</body>
+</html>
